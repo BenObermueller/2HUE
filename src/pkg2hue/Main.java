@@ -16,7 +16,11 @@ public class Main {
      */
     public static void main(String[] args) {
         HalloJavamitForEach e = new HalloJavamitForEach();
-        e.printMyCumList();
+        e.printList();
+        e.printList2();
+        e.printList3();
+        e.printList4();
+        
     }
     
 }

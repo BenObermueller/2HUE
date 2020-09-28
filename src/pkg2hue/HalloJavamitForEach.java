@@ -7,6 +7,7 @@ package pkg2hue;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  *
@@ -16,20 +17,31 @@ public class HalloJavamitForEach {
     List<String> list = new ArrayList<>();
     
     public HalloJavamitForEach() {
-        list.add("Cum");
-        list.add("Piss");
-        list.add("CumBabay");
+        list.add("A");
+        list.add("B");
+        list.add("C");
     }
     
-    
-    
-    public void printMyCumList(){ 
+    public void printList(){ 
         for(String s: this.list){
             System.out.println(s);
         }
+        System.out.println("______________________________________");
     }
     
-    public void printMyCumList2(){
+    public void printList2(){
         this.list.forEach((String s) -> System.out.println(s));
+        System.out.println("______________________________________");
+    }
+    
+    public void printList3(){
+        Consumer<String> consumer = (String s) -> System.out.println(s);
+        this.list.forEach(consumer);
+        System.out.println("______________________________________");
+    }
+    
+    public void printList4(){
+        list.forEach(System.out::println);
+        System.out.println("______________________________________");
     }
 }
