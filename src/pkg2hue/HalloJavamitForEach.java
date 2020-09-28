@@ -13,18 +13,23 @@ import java.util.List;
  * @author Ben Obermüller
  */
 public class HalloJavamitForEach {
-
+    List<String> list = new ArrayList<>();
+    
     public HalloJavamitForEach() {
+        list.add("Cum");
+        list.add("Piss");
+        list.add("CumBabay");
     }
     
     
-    List<String> list = new ArrayList<>();
     
-    public void printMyCumList(){
-        this.list.add("Cum");
-        this.list.add("Piss");
+    public void printMyCumList(){ 
         for(String s: this.list){
             System.out.println(s);
         }
+    }
+    
+    public void printMyCumList2(){
+        this.list.forEach((String s) -> System.out.println(s));
     }
 }
