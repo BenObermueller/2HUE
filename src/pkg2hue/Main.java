@@ -21,9 +21,30 @@ public class Main {
 //        e.printList3();
 //        e.printList4();
         NumberTester nt = new NumberTester("NumbersForTest.txt");
-        
-        
+
+        nt.setOddEvenTester((n) -> {
+            if (n % 2 == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+        nt.setPrimeTester((n)-> {
+            for (int i = 2; i < n; i++) {
+                int a = n % i;
+                if (a == 0) {
+                    return false;
+                }
+            }
+            return true;
+        });
+
+        nt.setPalindromeTester((n) -> {
+            return false;
+        });
+
         nt.testFile();
     }
-    
+
 }
