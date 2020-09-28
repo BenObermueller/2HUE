@@ -46,14 +46,25 @@ public class NumberTester {
                 
                 String[] arr = line.split(" ");
                 if(Integer.parseInt(arr[0]) == 1){
-                    System.out.println(oddTester.testNumber(Integer.parseInt(arr[1])));
+                    if(oddTester.testNumber(Integer.parseInt(arr[1]))==true){
+                        System.out.println("EVEN");
+                    }else{
+                        System.out.println("ODD");
+                    }
                     
                 }else if(Integer.parseInt(arr[0]) == 2){
-                    System.out.println(primeTester.testNumber(Integer.parseInt(arr[1])));
+                    if(primeTester.testNumber(Integer.parseInt(arr[1]))==true){
+                        System.out.println("PRIME");
+                    }else{
+                        System.out.println("NO PRIME");
+                    }
                     
                 }else if(Integer.parseInt(arr[0]) == 3){
-                    System.out.println(palindromTester.testNumber(Integer.parseInt(arr[1])));
-                    
+                    if(palindromTester.testNumber(Integer.parseInt(arr[1]))==true){
+                        System.out.println("PALINDROME");
+                    }else{
+                        System.out.println("NO PALINDROME");
+                    }
                 }else{
                     System.out.println("Fehler!");
                 }
