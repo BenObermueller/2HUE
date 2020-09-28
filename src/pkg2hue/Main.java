@@ -15,12 +15,13 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        HalloJavamitForEach e = new HalloJavamitForEach();
-        e.printList();
-        e.printList2();
-        e.printList3();
-        e.printList4();
-        
+//        HalloJavamitForEach e = new HalloJavamitForEach();
+//        e.printList();
+//        e.printList2();
+//        e.printList3();
+//        e.printList4();
+        NumberTester nt = new NumberTester("NumbersForTest.txt");
+        nt.testFile();
     }
     
 }
