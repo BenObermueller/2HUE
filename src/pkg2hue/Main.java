@@ -21,6 +21,8 @@ public class Main {
 //        e.printList3();
 //        e.printList4();
         NumberTester nt = new NumberTester("NumbersForTest.txt");
+        
+        
         nt.testFile();
     }
     

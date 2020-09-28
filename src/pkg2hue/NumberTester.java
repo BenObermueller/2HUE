@@ -17,29 +17,47 @@ import java.util.logging.Logger;
  * @author Ben Obermüller
  */
 public class NumberTester {
-    String fileName;
-
+    private String fileName;
+    private NumberTest oddTester;
+    private NumberTest primeTester;
+    private NumberTest palindromTester;
+    
+    
     public NumberTester(String fileName) {
         this.fileName = fileName;
     }
     
     public void setOddEvenTester(NumberTest oddTester){
-        
+        this.oddTester = oddTester;
     }
     public void setPrimeTester(NumberTest primeTester){
-        
+        this.primeTester = primeTester;
     }
     
     public void setPalindromeTester(NumberTest palindromTester){
-        
+        this.palindromTester = palindromTester;
     }
     
     public void testFile(){
         try {
             BufferedReader br = new BufferedReader(new FileReader(this.fileName));
             String line = br.readLine();
-            while (line!=null) { 
-                System.out.println(line);
+            while (line!=null) {
+                
+                String[] arr = line.split(" ");
+                if(Integer.parseInt(arr[0]) == 1){
+                    System.out.println(arr[1]);
+                    
+                }else if(Integer.parseInt(arr[0]) == 2){
+                    System.out.println(arr[1]);
+                    
+                }else if(Integer.parseInt(arr[0]) == 3){
+                    System.out.println(arr[1]);
+                    
+                }else{
+                    System.out.println("Fehler!");
+                }
+                
                 line = br.readLine();
             }
             br.close();
