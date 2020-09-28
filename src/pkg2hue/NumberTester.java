@@ -46,13 +46,13 @@ public class NumberTester {
                 
                 String[] arr = line.split(" ");
                 if(Integer.parseInt(arr[0]) == 1){
-                    System.out.println(arr[1]);
+                    System.out.println(oddTester.testNumber(Integer.parseInt(arr[1])));
                     
                 }else if(Integer.parseInt(arr[0]) == 2){
-                    System.out.println(arr[1]);
+                    System.out.println(primeTester.testNumber(Integer.parseInt(arr[1])));
                     
                 }else if(Integer.parseInt(arr[0]) == 3){
-                    System.out.println(arr[1]);
+                    System.out.println(palindromTester.testNumber(Integer.parseInt(arr[1])));
                     
                 }else{
                     System.out.println("Fehler!");

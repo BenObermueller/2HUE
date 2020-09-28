@@ -30,7 +30,7 @@ public class Main {
             }
         });
 
-        nt.setPrimeTester((n)-> {
+        nt.setPrimeTester((n) -> {
             for (int i = 2; i < n; i++) {
                 int a = n % i;
                 if (a == 0) {
@@ -41,7 +41,19 @@ public class Main {
         });
 
         nt.setPalindromeTester((n) -> {
-            return false;
+            int r, sum = 0, temp;
+
+            temp = n;
+            while (n > 0) {
+                r = n % 10;
+                sum = (sum * 10) + r;
+                n = n / 10;
+            }
+            if (temp == sum) {
+                return true;
+            } else {
+                return false;
+            }
         });
 
         nt.testFile();
