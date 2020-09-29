@@ -17,22 +17,22 @@ public class ComplexCalculator extends AbstractCalculator{
 
     @Override
     public Number add(Number a, Number b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.add.calc(a, b);
     }
 
     @Override
     public Number sub(Number a, Number b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.sub.calc(a, b);
     }
 
     @Override
     public Number mult(Number a, Number b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.mult.calc(a, b);
     }
 
     @Override
     public Number div(Number a, Number b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.div.calc(a, b);
     }
     
 }
