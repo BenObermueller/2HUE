@@ -17,9 +17,25 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         Main main = new Main();
-        main.AbstractCalculatorM();
-
+        System.out.println("1...HalloJavaMitForEach");
+        System.out.println("2...numberTesterM");
+        System.out.println("3...AbstractCalculatorM");
+        int ausw = Integer.parseInt(sc.nextLine());
+        switch(ausw){
+            case 1:
+                main.HalloJavaMitForEachM();
+                break;
+            case 2:
+                main.numberTesterM();
+                break;
+            case 3:
+                main.AbstractCalculatorM();
+                break;
+            default:
+                System.out.println("FEHLER!!");
+        }
     }
 
     private int auswUnterM() {
@@ -68,6 +84,27 @@ public class Main {
                     return new Number((x.getA() * y.getA()) + (x.getB() * y.getB()), 0);
                 });
 
+        ComplexCalculator cc = new ComplexCalculator(
+                (Number x, Number y) -> {
+                    return new Number(x.getA() + y.getA(), x.getB() + y.getB());
+                }, (Number x, Number y) -> {
+                    return new Number(x.getA() - y.getA(), x.getB() - y.getB());
+                }, (Number x, Number y) -> {
+                    Number n = new Number(x.getA() * y.getA(), x.getA() * y.getB());
+                    Number n2 = new Number(x.getB() * y.getA(), x.getB() * y.getB());
+                    return new Number(n.getA() + n2.getB() * (-1), n.getB() + n2.getA());
+                }, (Number x, Number y) -> {
+                    Number a = new Number(x.getA() * y.getA(), x.getA() * y.getB() * (-1));
+                    Number a2 = new Number(x.getB() * y.getA(), x.getB() * y.getB() * (-1));
+                    Number a3 = new Number(a.getA() + a2.getB() * (-1), a.getB() + a2.getA());
+
+                    Number e = new Number(y.getA() * y.getA(), y.getA() * y.getB() * (-1));
+                    Number e2 = new Number(y.getB() * y.getA(), y.getB() * y.getB() * (-1));
+                    Number e3 = new Number(e.getA() * e2.getB() * (-1), 0);
+
+                    return new Number(a3.getA() / e3.getA(), a3.getB() / e3.getA());
+                });
+
         Scanner sc = new Scanner(System.in);
         int auswM;
         do {
@@ -77,7 +114,7 @@ public class Main {
             System.out.println("3 - ComplexCalculator");
             System.out.println("4 - Exit");
             auswM = Integer.parseInt(sc.nextLine());
-            if(auswM == 4){
+            if (auswM == 4) {
                 break;
             }
             Main m = new Main();
@@ -141,12 +178,16 @@ public class Main {
                     //ComplexCalculator
                     switch (m.auswUnterM()) {
                         case 1:
+                            System.out.println(cc.add(x, y).getA() + "/" + cc.add(x, y).getB());
                             break;
                         case 2:
+                            System.out.println(cc.sub(x, y).getA() + "/" + cc.sub(x, y).getB());
                             break;
                         case 3:
+                            System.out.println(cc.mult(x, y).getA() + "/" + cc.mult(x, y).getB());
                             break;
                         case 4:
+                            System.out.println(cc.div(x, y).getA() + "/" + cc.div(x, y).getB());
                             break;
                         case 5:
                             break;
@@ -178,19 +219,15 @@ public class Main {
         });
 
         nt.setPalindromeTester((n) -> {
-            int r, sum = 0, temp;
-
-            temp = n;
-            while (n > 0) {
-                r = n % 10;
-                sum = (sum * 10) + r;
-                n = n / 10;
+            String zahl = n+"";
+            char[] arr = zahl.toCharArray();
+            int len =  arr.length-1;
+            for(int y=0, j = len; y<len; y++, j--){
+                if(arr[y] != arr[j]){
+                    return false;
+                }
             }
-            if (temp == sum) {
-                return true;
-            } else {
-                return false;
-            }
+            return true;
         });
 
         nt.testFile();
@@ -203,5 +240,4 @@ public class Main {
         e.printList3();
         e.printList4();
     }
-
 }
